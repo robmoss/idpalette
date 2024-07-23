@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling ~= 1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "idpalette"
+version = "0.1.0"
+description = "Colour palettes based on the ACEFA, IDDU, and IDEM logos"
+readme = "README.md"
+requires-python = ">= 3.8"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Rob Moss", email = "rgmoss@unimelb.edu.au"}
+]
+maintainers = [
+  {name = "Rob Moss", email = "rgmoss@unimelb.edu.au"}
+]
+dependencies = [
+  "mizani ~= 0.11",
+]
+
+[project.optional-dependencies]
+cmap = [
+  "matplotlib ~= 3.9",
+]
+tests = [
+  'pytest',
+  'pytest-cov ~= 4.0',
+]
+
+[project.urls]
+Homepage = "https://github.com/robmoss/idpalette/"
+Repository = "https://github.com/robmoss/idpalette/"
+
+[tool.ruff]
+line-length = 78
+target-version = "py38"
+
+[tool.ruff.lint]
+# Enable pyflakes (F), pycodestyle (E, W), flake8-bugbear (B), pyupgrade (UP),
+# flake8-debugger (T10), and NumPy (NPY).
+select = ["F", "E", "W", "B", "UP", "T10", "NPY"]
+
+[tool.ruff.format]
+quote-style = "single"
+docstring-code-format = true
+
+[tool.pytest.ini_options]
+addopts = "--cov-report term-missing"
